@@ -12,7 +12,7 @@ def prime_factors(n):
         while n % d == 0:
             yield d
             n /= d
-        d = d + 1
+        d += 1
 
 ans = max(n for n in prime_factors(600851475143))
 
