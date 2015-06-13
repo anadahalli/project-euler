@@ -23,9 +23,11 @@ What is the value of the first triangle number to have over
 five hundred divisors?
 """
 
+from math import sqrt
+
 
 def divisors(n):
-    for i in range(1, n//2+1):
+    for i in range(1, int(sqrt(n))):
         if n % i == 0:
             yield i
     yield n
@@ -34,12 +36,9 @@ length = 0
 count = 1
 ans = 0
 
-while True:
+while length <= 500:
     ans = sum(i for i in range(count+1))
-    length = len(list(divisors(ans)))
-    print(ans, length)
-    if length >= 500:
-        break
+    length = len(list(divisors(ans))) * 2
     count += 1
 
 print(ans)
